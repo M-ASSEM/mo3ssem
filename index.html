@@ -4,204 +4,326 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohamed Assem - Portfolio</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* General Reset */
-        * {
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
+            background-color: #f4f4f9;
             color: #333;
+            line-height: 1.6;
         }
-
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
         header {
-            background: #333;
-            color: #fff;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: white;
             text-align: center;
             padding: 20px 0;
         }
-
-        nav ul {
-            list-style: none;
+        header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.5);
+            margin-bottom: 10px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+        nav {
             display: flex;
             justify-content: center;
-            background: #444;
-            padding: 10px 0;
+            background-color: #004085;
         }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: #fff;
+        nav a {
+            color: white;
+            padding: 15px 25px;
             text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-
+        nav a:hover {
+            background-color: #0056b3;
+        }
         section {
-            padding: 20px 0;
+            padding: 30px 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         h2 {
-            text-align: center;
+            color: #007BFF;
+            font-size: 2rem;
             margin-bottom: 20px;
         }
+        .hidden {
+            display: none;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .contact-info a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* شبكة مرنة */
+    gap: 20px; /* مسافة بين العناصر */
+    padding: 20px;
+}
 
-        .certification-item, .project-item, .gallery-item {
+.gallery-item {
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل بسيط للعناصر */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* تأثير عند التحويم */
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px); /* رفع العنصر قليلًا عند التحووم */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* زيادة الظل عند التحووم */
+}
+
+.gallery-item img {
+    width: 100%; /* عرض الصورة يغطي العنصر بالكامل */
+    height: 200px; /* ارتفاع ثابت لكل الصور */
+    object-fit: cover; /* يخلي الصورة تحتفظ بشكلها بدون تشويه */
+    border-radius: 8px;
+    margin-bottom: 10px; /* مسافة بين الصورة والوصف */
+}
+        .certification-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
             margin-bottom: 20px;
         }
-
-        .gallery-item img {
-            width: 100%;
-            transition: transform 0.5s ease;
-            cursor: pointer;
+        .certification-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
         }
-
-        .gallery-item img:hover {
-            transform: scale(1.5);
+        .certification-item div {
+            flex: 1;
         }
-
         footer {
             text-align: center;
-            padding: 10px 0;
-            background: #333;
-            color: #fff;
-            margin-top: 20px;
+            padding: 15px;
+            background-color: #007BFF;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
-
-        footer a {
-            color: #fff;
-            text-decoration: none;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav a {
+                flex-direction: column;
+                padding: 10px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="container">
-            <h1>Mohamed Assem</h1>
-            <p>Senior Student | AI, IoT, and Embedded System Engineer</p>
-        </div>
-    </header>
 
-    <!-- Navigation Menu -->
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#certifications">Certifications & Projects</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact Me</a></li>
-            </ul>
-        </div>
-    </nav>
+<header>
+    <img src="mo3ssem.jpg" alt="Mohamed Assem">
+    <h1>Mohamed Assem</h1>
+    <p>Senior Student | AI, IoT, and Embedded System Engineer</p>
+</header>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>Senior Student @ The Egyptian Russian University - ERU | Pursuing hands-on experience in Artificial Intelligence and embedded systems.</p>
-        </div>
-    </section>
+<nav>
+    <a href="#" onclick="showPage('about')"><i class="fas fa-user"></i> About Me</a>
+    <a href="#" onclick="showPage('certifications')"><i class="fas fa-certificate"></i> Certifications & Projects</a>
+    <a href="#" onclick="showPage('gallery')"><i class="fas fa-images"></i> Gallery</a>
+    <a href="#" onclick="showPage('contact')"><i class="fas fa-envelope"></i> Contact Me</a>
+</nav>
 
-    <!-- Certifications & Projects Section -->
-    <section id="certifications">
-        <div class="container">
-            <h2>Certifications & Projects</h2>
-            <div class="certification-item">
-                <h3>Python Programming Language</h3>
-                <p>Issued by: Huawei</p>
-            </div>
-            <div class="certification-item">
-                <h3>Embedded Systems Certification</h3>
-                <p>Issued by: ITI</p>
-            </div>
-            <div class="certification-item">
-                <h3>Introduction to Artificial Intelligence</h3>
-                <p>Issued by: Zewail University</p>
-            </div>
-            <div class="certification-item">
-                <h3>AI & Machine Learning Certification</h3>
-                <p>Issued by: AITB</p>
-            </div>
-            <div class="certification-item">
-                <h3>AWS Educate Introduction to Cloud 101</h3>
-                <p>Issued by: Amazon Web Services (AWS)</p>
-            </div>
-            <div class="certification-item">
-                <h3>AWS Certification</h3>
-                <p>Issued by: Coursera (AWS)</p>
-            </div>
-            <div class="certification-item">
-                <h3>InnovEgypt</h3>
-                <p>Issued by: InnovEgypt - Business Administration</p>
-            </div>
-            <div class="certification-item">
-                <h3>IEEE Paper</h3>
-                <p>Issued by: IEEE</p>
-            </div>
-            <div class="project-item">
-                <h3>Mobile Controlled Home System</h3>
-                <p>Description: Safety Door, Light Control, Security Features</p>
-            </div>
-            <div class="project-item">
-                <h3>Clinical Management System</h3>
-                <p>Description: Password Protection, Patient Records, Appointment Scheduling</p>
-            </div>
-        </div>
-    </section>
+<section id="about">
+    <h2>About Me</h2>
+    <p>Senior Student @ The Egyptian Russian University - ERU | Pursuing hands-on experience in Artificial Intelligence and embedded systems.</p>
+</section>
 
-    <!-- Gallery Section -->
-    <section id="gallery">
-        <div class="container">
-            <h2>Gallery</h2>
-            <div class="gallery-item">
-                <img src="mobile_home.jpg" alt="Mobile Controlled Home System">
-                <p>Mobile Controlled Home System</p>
-            </div>
-            <div class="gallery-item">
-                <img src="clinical_system.jpg" alt="Clinical Management System">
-                <p>Clinical Management System</p>
-            </div>
-            <div class="gallery-item">
-                <img src="ui_ux.jpg" alt="UI/UX Design Example">
-                <p>UI/UX Design Example</p>
-            </div>
-            <div class="gallery-item">
-                <img src="smart_wheelchair.jpg" alt="Smart Wheelchair Project">
-                <p>Smart Wheelchair Project</p>
-            </div>
+<section id="certifications" class="hidden">
+    <h2>Certifications & Projects</h2>
+<div class="certification-item">
+        <img src="h-py.jpg" alt="
+ Certification">
+        <div>
+            <h3><i class="fab fa-python"></i> Python Programming Language</h3>
+            <p><strong>Issued by:</strong> Huawei</p>
         </div>
-    </section>
+    </div>
+    <div class="certification-item">
+        <img src="iti.jpg" alt="embedded systems Certification">
+        <div>
+            <h3><i class="fas fa-microchip"></i> embedded systems Certification</h3>
+            <p><strong>Issued by:</strong> ITI</p>
+        </div>
+    </div>
+    <div class="certification-item">
+        <img src="ai-py.jpg" alt="AI Certification">
+        <div>
+            <h3><i class="fas fa-brain"></i> Introduction to Artificial Intelligence</h3>
+            <p><strong>Issued by:</strong> Zewail University</p>
+        </div>
+    </div>
+<div class="certification-item">
+        <img src="ma-py.jpg" alt="AI & machine learning  Certification">
+        <div>
+            <h3><i class="fas fa-brain"></i>  AI & machine learning  Certification</h3>
+            <p><strong>Issued by:</strong> AITB</p>
+        </div>
+    </div>
+    <div class="certification-item">
+        <img src="aws.jpg" alt="AWS Certification">
+        <div>
+            <h3><i class="fab fa-aws"></i> AWS Educate Introduction to Cloud 101</h3>
+            <p><strong>Issued by:</strong> Amazon Web Services (AWS)</p>
+        </div>
+    </div>
+ <div class="certification-item">
+        <img src="aws-coursera.jpg" alt="AWS Certification">
+        <div>
+            <h3><i class="fab fa-aws"></i> AWS</h3>
+            <p><strong>Issued by:</strong> coursera (AWS)</p>
+        </div>
+    </div>
+<div class="certification-item">
+        <img src="innoveegypt.jpg" alt=" Certification">
+        <div>
+            <h3><i class="fab fa-jenkins"></i> innoveegypt</h3>
+            <p><strong>Issued by:</strong> innoveegypt - Business Administration</p>
+        </div>
+    </div>
+<div class="certification-item">
+        <img src="ieee.jpg" alt=" Certification">
+        <div>
+            <h3><i class="fas fa-bolt"></i> IEEE</h3>
+            <p><strong>Issued by:</strong> Paper</p>
+        </div>
+    </div>
+<center>-------------------------------------------------</center>
+    <div class="certification-item">
+        <img src="ph.jpg" alt="Mobile Controlled Home System">
+        <div>
+            <h3><i class="fas fa-home"></i> Mobile Controlled Home System</h3>
+            <p><strong>Description:</strong> Safety Door, Light Control, Security Features</p>
+        </div>
+    </div>
+    <div class="certification-item">
+        <img src="cli.jpg" alt="Clinical Management System">
+        <div>
+            <h3><i class="fas fa-hospital"></i> Clinical Management System</h3>
+            <p><strong>Description:</strong> Password Protection, Patient Records, Appointment Scheduling</p>
+        </div>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <p>Email: mohamedassemalkalp182@gmail.com</p>
-            <p>Phone: +20 10 93787803</p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/mohamed-assem">linkedin.com/in/mohamed-assem</a></p>
-            <p>Facebook: <a href="https://facebook.com">facebook.com</a></p>
-            <p>Instagram: <a href="https://instagram.com">instagram.com</a></p>
+<section id="gallery" class="hidden">
+    <h2>Gallery</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="ph.jpg" alt="Mobile Controlled Home System">
+            <p><i class="fas fa-home"></i> Mobile Controlled Home System</p>
         </div>
-    </section>
+        <div class="gallery-item">
+            <img src="cli.jpg" alt="Clinical Management System">
+            <p><i class="fas fa-hospital"></i> Clinical Management System</p>
+        </div>
+        <div class="gallery-item">
+            <img src="CEE.png" alt="UI/UX Design Example">
+            <p><i class="fas fa-palette"></i> UI/UX Design Example</p>
+        </div>
+<div class="gallery-item">
+            <img src="ieee-embedded.jpg" alt="Instructor - IEEE">
+            <p><i class="fas fa-bolt"></i> Instructor - IEEE</p>
+        </div>
+        <div class="gallery-item">
+            <img src="cyper.jpg" alt="IT & Cyber Security Expert">
+            <p><i ></i>IT & Cyber Security Expert | Dr.Mahmoud Farag </p>
+        </div>
+        <div class="gallery-item">
+            <img src="ieee.jpg" alt="IEEE">
+            <p><i></i> Paper - IEEE</p>
+        </div>
+<div class="gallery-item">
+            <img src="pro.jpg" alt="pro">
+            <p><i></i>graduation project</p>
+        </div>
+<div class="gallery-item">
+            <img src="smart.jpg" alt="smart">
+            <p><i></i> smart wheelchair project</p>
+        </div>
+<div class="gallery-item">
+            <img src="connection.jpg" alt="connection">
+            <p><i></i>Ministry of Communications and Information Technology (MCIT)</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+            <img src="Con1.jpg" alt="connection">
+            <p><i></i> رئاسة مجلس الوزراء المصري معادى دكتور مصطفى مدبولى و وزير للاتصالات معالى دكتور عمرو طلعت</p>
+        </div>
+</div>
+</section>
 
-    <!-- Footer Section -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Mohamed Assem. All rights reserved.</p>
-        </div>
-    </footer>
+<section id="contact" class="hidden">
+    <h2>Contact Me</h2>
+    <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> <a href="mailto:mohamedassemalkalp182@gmail.com">mohamedassemalkalp182@gmail.com</a></p>
+        <p><i class="fas fa-phone"></i> +20 10 93787803</p>
+        <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/mohamed-assem-b2b984297/" target="_blank">linkedin.com/in/mohamed-assem</a></p>
+        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/201093787803" target="_blank">+20 10 93787803</a></p>
+        <p><i class="fab fa-facebook"></i> <a href="https://www.facebook.com/profile.php?id=100081794198638" target="_blank">facebook.com</a></p>
+        <p><i class="fab fa-instagram"></i> <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2F_M.ASSEM%3Ffbclid%3DIwZXh0bgNhZW0CMTAAAR2iLSWR_rx98xKViW0gjYBE7mZr7yB4Egu8PySltxvy3w-5IrT6rJLo52U_aem_PlbnWo_4Nt25swz4mqihsA&h=AT1FNeIzTqtgsqUllg5T4QnPgURmfTpSuHlFKZzhsQCl-MqJyKlpS4iryqvQmIA6Cw5S7jJqotdGBWiR6LCruI0igB4AungpLvucUqKBcWSLtkmVmMVs-pOydXcWyaaHeMcJ" target="_blank">instagram.com</a></p>
+    </div>
+</section>
+
+<footer>
+    &copy; 2025 Mohamed Assem. All rights reserved.
+</footer>
+
+<script>
+    function showPage(pageId) {
+        // Hide all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('hidden');
+        });
+        // Show the selected section
+        document.getElementById(pageId).classList.remove('hidden');
+    }
+
+    // Show the "About Me" section by default
+    window.onload = function() {
+        showPage('about');
+    };
+</script>
+
 </body>
 </html>
