@@ -83,34 +83,42 @@
         .contact-info a:hover {
             text-decoration: underline;
         }
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* شبكة مرنة */
-    gap: 20px; /* مسافة بين العناصر */
-    padding: 20px;
-}
-
-.gallery-item {
-    text-align: center;
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل بسيط للعناصر */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* تأثير عند التحويم */
-}
-
-.gallery-item:hover {
-    transform: translateY(-5px); /* رفع العنصر قليلًا عند التحووم */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* زيادة الظل عند التحووم */
-}
-
-.gallery-item img {
-    width: 100%; /* عرض الصورة يغطي العنصر بالكامل */
-    height: 200px; /* ارتفاع ثابت لكل الصور */
-    object-fit: cover; /* يخلي الصورة تحتفظ بشكلها بدون تشويه */
-    border-radius: 8px;
-    margin-bottom: 10px; /* مسافة بين الصورة والوصف */
-}
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        .gallery-item:hover img {
+            object-fit: contain;
+            height: auto;
+            transform: scale(1.1);
+            z-index: 3;
+            background: white;
+        }
         .certification-item {
             display: flex;
             align-items: center;
@@ -172,18 +180,17 @@
 
 <section id="certifications" class="hidden">
     <h2>Certifications & Projects</h2>
-<div class="certification-item">
-        <img src="h-py.jpg" alt="
- Certification">
+    <div class="certification-item">
+        <img src="h-py.jpg" alt="Python Certification">
         <div>
             <h3><i class="fab fa-python"></i> Python Programming Language</h3>
             <p><strong>Issued by:</strong> Huawei</p>
         </div>
     </div>
     <div class="certification-item">
-        <img src="iti.jpg" alt="embedded systems Certification">
+        <img src="iti.jpg" alt="Embedded Systems Certification">
         <div>
-            <h3><i class="fas fa-microchip"></i> embedded systems Certification</h3>
+            <h3><i class="fas fa-microchip"></i> Embedded Systems Certification</h3>
             <p><strong>Issued by:</strong> ITI</p>
         </div>
     </div>
@@ -194,10 +201,10 @@
             <p><strong>Issued by:</strong> Zewail University</p>
         </div>
     </div>
-<div class="certification-item">
-        <img src="ma-py.jpg" alt="AI & machine learning  Certification">
+    <div class="certification-item">
+        <img src="ma-py.jpg" alt="AI & Machine Learning Certification">
         <div>
-            <h3><i class="fas fa-brain"></i>  AI & machine learning  Certification</h3>
+            <h3><i class="fas fa-brain"></i> AI & Machine Learning Certification</h3>
             <p><strong>Issued by:</strong> AITB</p>
         </div>
     </div>
@@ -208,28 +215,28 @@
             <p><strong>Issued by:</strong> Amazon Web Services (AWS)</p>
         </div>
     </div>
- <div class="certification-item">
+    <div class="certification-item">
         <img src="aws-coursera.jpg" alt="AWS Certification">
         <div>
             <h3><i class="fab fa-aws"></i> AWS</h3>
-            <p><strong>Issued by:</strong> coursera (AWS)</p>
+            <p><strong>Issued by:</strong> Coursera (AWS)</p>
         </div>
     </div>
-<div class="certification-item">
-        <img src="innoveegypt.jpg" alt=" Certification">
+    <div class="certification-item">
+        <img src="innoveegypt.jpg" alt="Innoveegypt Certification">
         <div>
-            <h3><i class="fab fa-jenkins"></i> innoveegypt</h3>
-            <p><strong>Issued by:</strong> innoveegypt - Business Administration</p>
+            <h3><i class="fab fa-jenkins"></i> Innoveegypt</h3>
+            <p><strong>Issued by:</strong> Innoveegypt - Business Administration</p>
         </div>
     </div>
-<div class="certification-item">
-        <img src="ieee.jpg" alt=" Certification">
+    <div class="certification-item">
+        <img src="ieee.jpg" alt="IEEE Certification">
         <div>
             <h3><i class="fas fa-bolt"></i> IEEE</h3>
             <p><strong>Issued by:</strong> Paper</p>
         </div>
     </div>
-<center>-------------------------------------------------</center>
+    <center>-------------------------------------------------</center>
     <div class="certification-item">
         <img src="ph.jpg" alt="Mobile Controlled Home System">
         <div>
@@ -261,36 +268,35 @@
             <img src="CEE.png" alt="UI/UX Design Example">
             <p><i class="fas fa-palette"></i> UI/UX Design Example</p>
         </div>
-<div class="gallery-item">
+        <div class="gallery-item">
             <img src="ieee-embedded.jpg" alt="Instructor - IEEE">
             <p><i class="fas fa-bolt"></i> Instructor - IEEE</p>
         </div>
         <div class="gallery-item">
             <img src="cyper.jpg" alt="IT & Cyber Security Expert">
-            <p><i ></i>IT & Cyber Security Expert | Dr.Mahmoud Farag </p>
+            <p><i></i>IT & Cyber Security Expert | Dr. Mahmoud Farag</p>
         </div>
         <div class="gallery-item">
             <img src="ieee.jpg" alt="IEEE">
             <p><i></i> Paper - IEEE</p>
         </div>
-<div class="gallery-item">
-            <img src="pro.jpg" alt="pro">
-            <p><i></i>graduation project</p>
+        <div class="gallery-item">
+            <img src="pro.jpg" alt="Graduation Project">
+            <p><i></i> Graduation Project</p>
         </div>
-<div class="gallery-item">
-            <img src="smart.jpg" alt="smart">
-            <p><i></i> smart wheelchair project</p>
+        <div class="gallery-item">
+            <img src="smart.jpg" alt="Smart Wheelchair Project">
+            <p><i></i> Smart Wheelchair Project</p>
         </div>
-<div class="gallery-item">
-            <img src="connection.jpg" alt="connection">
-            <p><i></i>Ministry of Communications and Information Technology (MCIT)</p>
+        <div class="gallery-item">
+            <img src="connection.jpg" alt="Ministry of Communications and Information Technology (MCIT)">
+            <p><i></i> Ministry of Communications and Information Technology (MCIT)</p>
+        </div>
+        <div class="gallery-item">
+            <img src="Con1.jpg" alt="رئاسة مجلس الوزراء المصري معادى دكتور مصطفى مدبولى و وزير للاتصالات معالى دكتور عمرو طلعت">
+            <p><i></i> رئاسة مجلس الوزراء المصري معالى دكتور مصطفى مدبولى و وزير للاتصالات معالى دكتور عمرو طلعت</p>
         </div>
     </div>
-    <div class="gallery-item">
-            <img src="Con1.jpg" alt="connection">
-            <p><i></i> رئاسة مجلس الوزراء المصري معادى دكتور مصطفى مدبولى و وزير للاتصالات معالى دكتور عمرو طلعت</p>
-        </div>
-</div>
 </section>
 
 <section id="contact" class="hidden">
