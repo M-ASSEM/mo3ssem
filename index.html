@@ -190,7 +190,7 @@
             box-shadow: 0 0 20px #00ffcc;
         }
 
-        /* Contact - Improved Design */
+        /* Contact */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -243,6 +243,49 @@
             z-index: 1;
         }
 
+        /* Notes Section */
+        .notes-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        .notes-form textarea {
+            width: 100%;
+            max-width: 600px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #00ffcc;
+            border-radius: 10px;
+            padding: 15px;
+            color: #e0e0e0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            resize: vertical;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+            transition: all 0.3s ease;
+        }
+        .notes-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 15px #00ffcc;
+        }
+        .notes-form .submit-btn {
+            background: #00ffcc;
+            color: #0d0d0d;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px #0d0d0d;
+        }
+        .notes-form .submit-btn:hover {
+            box-shadow: 0 0 15px #00ffcc;
+            transform: scale(1.05);
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -266,6 +309,9 @@
             }
             .section {
                 padding: 20px;
+            }
+            .notes-form textarea {
+                width: 100%;
             }
         }
     </style>
@@ -425,7 +471,7 @@
         </div>
     </div>
 
-    <!-- Contact - Improved Design -->
+    <!-- Contact -->
     <div class="section">
         <h2>Contact Me</h2>
         <div class="contact-grid">
@@ -454,6 +500,15 @@
                 <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2F_M.ASSEM%3Ffbclid%3DIwZXh0bgNhZW0CMTAAAR2iLSWR_rx98xKViW0gjYBE7mZr7yB4Egu8PySltxvy3w-5IrT6rJLo52U_aem_PlbnWo_4Nt25swz4mqihsA&h=AT1FNeIzTqtgsqUllg5T4QnPgURmfTpSuHlFKZzhsQCl-MqJyKlpS4iryqvQmIA6Cw5S7jJqotdGBWiR6LCruI0igB4AungpLvucUqKBcWSLtkmVmMVs-pOydXcWyaaHeMcJ" target="_blank">instagram.com</a>
             </div>
         </div>
+    </div>
+
+    <!-- Notes Section - Email Only -->
+    <div class="section">
+        <h2>Notes</h2>
+        <form id="notesForm" class="notes-form">
+            <textarea id="noteText" placeholder="Write your note here..."></textarea>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
     </div>
 
     <!-- Footer -->
@@ -547,6 +602,23 @@
         const fullscreenImg = document.getElementById('fullscreenImg');
         fullscreenImg.style.display = 'none';
     }
+
+    // Notes Form Submission - Email Only
+    document.getElementById('notesForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const noteText = document.getElementById('noteText').value.trim();
+
+        if (!noteText) {
+            alert('مينفعش ترسل ملاحظة فاضية');
+            return;
+        }
+
+        const subject = encodeURIComponent('New Note from Portfolio');
+        const body = encodeURIComponent(noteText);
+        window.location.href = `mailto:mohamedassemalkalp182@gmail.com?subject=${subject}&body=${body}`;
+
+        document.getElementById('noteText').value = ''; // Clear the textarea after submission
+    });
 </script>
 
 </body>
