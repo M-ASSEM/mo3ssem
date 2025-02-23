@@ -190,22 +190,57 @@
             box-shadow: 0 0 20px #00ffcc;
         }
 
-        /* Contact */
+        /* Contact - Improved Design */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            text-align: center;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
         }
-        .contact-grid a {
+        .contact-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #00ffcc;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-item:hover {
+            box-shadow: 0 0 15px #00ffcc;
+            transform: translateY(-5px);
+        }
+        .contact-item i {
+            font-size: 1.5rem;
             color: #00ffcc;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #00ffcc;
+        }
+        .contact-item a, .contact-item span {
+            color: #e0e0e0;
             text-decoration: none;
+            font-size: 1rem;
             font-weight: bold;
             transition: all 0.3s ease;
         }
-        .contact-grid a:hover {
+        .contact-item a:hover {
+            color: #00ffcc;
             text-shadow: 0 0 10px #00ffcc;
-            color: #fff;
+        }
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 204, 0.1), transparent);
+            z-index: 0;
+            transform: rotate(45deg);
+        }
+        .contact-item * {
+            position: relative;
+            z-index: 1;
         }
 
         /* Footer */
@@ -226,7 +261,7 @@
             .header p {
                 font-size: 1.1rem;
             }
-            .cert-grid, .project-grid, .gallery-grid {
+            .cert-grid, .project-grid, .gallery-grid, .contact-grid {
                 grid-template-columns: 1fr;
             }
             .section {
@@ -390,16 +425,34 @@
         </div>
     </div>
 
-    <!-- Contact -->
+    <!-- Contact - Improved Design -->
     <div class="section">
         <h2>Contact Me</h2>
         <div class="contact-grid">
-            <p><i class="fas fa-envelope"></i> <a href="mailto:mohamedassemalkalp182@gmail.com">mohamedassemalkalp182@gmail.com</a></p>
-            <p><i class="fas fa-phone"></i> +20 10 93787803</p>
-            <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/mohamed-assem-b2b984297/" target="_blank">linkedin.com/in/mohamed-assem</a></p>
-            <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/201093787803" target="_blank">+20 10 93787803</a></p>
-            <p><i class="fab fa-facebook"></i> <a href="https://www.facebook.com/profile.php?id=100081794198638" target="_blank">facebook.com</a></p>
-            <p><i class="fab fa-instagram"></i> <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2F_M.ASSEM%3Ffbclid%3DIwZXh0bgNhZW0CMTAAAR2iLSWR_rx98xKViW0gjYBE7mZr7yB4Egu8PySltxvy3w-5IrT6rJLo52U_aem_PlbnWo_4Nt25swz4mqihsA&h=AT1FNeIzTqtgsqUllg5T4QnPgURmfTpSuHlFKZzhsQCl-MqJyKlpS4iryqvQmIA6Cw5S7jJqotdGBWiR6LCruI0igB4AungpLvucUqKBcWSLtkmVmMVs-pOydXcWyaaHeMcJ" target="_blank">instagram.com</a></p>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:mohamedassemalkalp182@gmail.com">mohamedassemalkalp182@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+20 10 93787803</span>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <a href="https://www.linkedin.com/in/mohamed-assem-b2b984297/" target="_blank">linkedin.com/in/mohamed-assem</a>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/201093787803" target="_blank">+20 10 93787803</a>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-facebook"></i>
+                <a href="https://www.facebook.com/profile.php?id=100081794198638" target="_blank">facebook.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-instagram"></i>
+                <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2F_M.ASSEM%3Ffbclid%3DIwZXh0bgNhZW0CMTAAAR2iLSWR_rx98xKViW0gjYBE7mZr7yB4Egu8PySltxvy3w-5IrT6rJLo52U_aem_PlbnWo_4Nt25swz4mqihsA&h=AT1FNeIzTqtgsqUllg5T4QnPgURmfTpSuHlFKZzhsQCl-MqJyKlpS4iryqvQmIA6Cw5S7jJqotdGBWiR6LCruI0igB4AungpLvucUqKBcWSLtkmVmMVs-pOydXcWyaaHeMcJ" target="_blank">instagram.com</a>
+            </div>
         </div>
     </div>
 
